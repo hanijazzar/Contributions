@@ -18,13 +18,13 @@ google_info_file = ""
 service_key_file = ""
 
 with open (path_to_project_info_file, "r") as myfile:
-    project_info_file = myfile.read()
+	project_info_file = myfile.read()
 
 with open (path_to_google_info_file, "r") as myfile:
-    google_info_file = myfile.read()
+	google_info_file = myfile.read()
 
 with open (path_to_servicekey_file, "r") as myfile:
-    service_key_file = myfile.read()
+	service_key_file = myfile.read()
 
 wrong_input = False
 
@@ -50,9 +50,9 @@ print "Uploading DYSM files.."
 
 for file_name in dysm_files:
 	file_name_without_extension = file_name[2:].split('.')[0]
-    print "Uploading " + file_name_without_extension
-    os.system("../Pods/FirebaseCrash/batch-upload -i " + path_to_info + " -p " + path_to_google_info + " " + path_to_servicekey + " " + file_name_without_extension)
-    print "File" + file_name_without_extension + " Uploaded Successfully"
+	print "Uploading " + file_name_without_extension
+	os.system("../Pods/FirebaseCrash/batch-upload -i " + path_to_info + " -p " + path_to_google_info + " " + path_to_servicekey + " " + file_name_without_extension)
+	print "File" + file_name_without_extension + " Uploaded Successfully"
 
 print "Files uploaded successfully"
 
