@@ -3,7 +3,7 @@
 import glob
 import os
 
-print "Running batch upload script\nFollow the following carefully\n1.Paste the dsym folder inside your PROJECT'S MAIN  directory.\n2.Paste this script inside dSYM folder\n3.Follow carefully."
+print("Running batch upload script\nFollow the following carefully\n1.Paste the dsym folder inside your PROJECT'S MAIN  directory.\n2.Paste this script inside dSYM folder\n3.Follow carefully.")
 
 
 BASE_DIR =  os.path.dirname(os.getcwd())
@@ -63,16 +63,16 @@ path_to_project_info_file = '"{0}"'.format(path_to_project_info_file)
 path_to_google_info_file = '"{0}"'.format(path_to_google_info_file)
 path_to_servicekey_file = '"{0}"'.format(path_to_servicekey_file)
 
-print path_to_batch_upload
-print path_to_project_info_file
-print path_to_google_info_file
-print path_to_servicekey_file
+print (path_to_batch_upload)
+print (path_to_project_info_file)
+print (path_to_google_info_file)
+print (path_to_servicekey_file)
 
-print "Files read successfully"
+print("Files read successfully")
 
 dsym_files = glob.glob('./*.dSYM')
 
-print "Uploading dSYM files.."
+print("Uploading dSYM files..")
 
 for file_name in dsym_files:
     file_name_without_extension = file_name[2:].split('.')[0]
@@ -81,6 +81,8 @@ for file_name in dsym_files:
         print(path_to_batch_upload + ' -i ' + path_to_project_info_file + ' -p ' + path_to_google_info_file + ' ' + path_to_servicekey_file + ' "' + file_name_without_extension + '"')
         os.system(path_to_batch_upload + ' -i ' + path_to_project_info_file + ' -p ' + path_to_google_info_file + ' ' + path_to_servicekey_file + ' "' + file_name_without_extension + '"')
     except:
-        print "Failed to upload file '" + file_name_without_extension + "'"
+        print("Failed to upload file '" + file_name_without_extension + "'")
+        exit(1)
 
-print "Files uploaded successfully"
+print ("Files uploaded successfully")
+
